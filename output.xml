@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180608 11:11:31.112" generator="Robot 3.0.4 (Python 3.5.4 on win32)">
+<suite id="s1" source="C:\Users\balint.nandor\Documents\RobotFramework\FirstTest.robot" name="FirstTest">
+<test id="s1-t1" name="Lets do something">
+<kw library="resources" name="Open Browser To Google">
+<kw library="Selenium2Library" name="Open Browser">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>${google_url}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20180608 11:11:31.307" level="INFO">Opening browser 'Firefox' to base url 'https://www.google.com/'.</msg>
+<status endtime="20180608 11:11:37.326" status="PASS" starttime="20180608 11:11:31.306"></status>
+</kw>
+<status endtime="20180608 11:11:37.326" status="PASS" starttime="20180608 11:11:31.306"></status>
+</kw>
+<kw type="teardown" library="Selenium2Library" name="Close Browser">
+<doc>Closes the current browser.</doc>
+<status endtime="20180608 11:11:40.489" status="PASS" starttime="20180608 11:11:37.328"></status>
+</kw>
+<status endtime="20180608 11:11:40.489" status="PASS" critical="yes" starttime="20180608 11:11:31.305"></status>
+</test>
+<status endtime="20180608 11:11:40.490" status="PASS" starttime="20180608 11:11:31.115"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat id="s1" fail="0" pass="1" name="FirstTest">FirstTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
