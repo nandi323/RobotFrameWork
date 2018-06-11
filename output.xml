@@ -1,38 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20180608 11:11:31.112" generator="Robot 3.0.4 (Python 3.5.4 on win32)">
-<suite id="s1" source="C:\Users\balint.nandor\Documents\RobotFramework\FirstTest.robot" name="FirstTest">
-<test id="s1-t1" name="Lets do something">
-<kw library="resources" name="Open Browser To Google">
+<robot generated="20180611 12:42:05.501" generator="Robot 3.0.4 (Python 3.5.4 on win32)">
+<suite source="C:\Users\balint.nandor\Documents\RobotFramework\FirstTest.robot" id="s1" name="FirstTest">
+<test id="s1-t1" name="Open Youtube And Click Random Video">
+<kw library="resources" name="Open Browser To URL">
+<arguments>
+<arg>https://www.youtube.com/</arg>
+</arguments>
 <kw library="Selenium2Library" name="Open Browser">
 <doc>Opens a new browser instance to the given ``url``.</doc>
 <arguments>
-<arg>${google_url}</arg>
+<arg>${this_url}</arg>
 <arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20180608 11:11:31.307" level="INFO">Opening browser 'Firefox' to base url 'https://www.google.com/'.</msg>
-<status endtime="20180608 11:11:37.326" status="PASS" starttime="20180608 11:11:31.306"></status>
+<msg timestamp="20180611 12:42:05.703" level="INFO">Opening browser 'Firefox' to base url 'https://www.youtube.com/'.</msg>
+<status status="PASS" endtime="20180611 12:42:13.925" starttime="20180611 12:42:05.703"></status>
 </kw>
-<status endtime="20180608 11:11:37.326" status="PASS" starttime="20180608 11:11:31.306"></status>
+<kw library="Selenium2Library" name="Location Should Be">
+<doc>Verifies that current URL is exactly ``url``.</doc>
+<arguments>
+<arg>${this_url}</arg>
+</arguments>
+<msg timestamp="20180611 12:42:13.949" level="INFO">Current location is 'https://www.youtube.com/'.</msg>
+<status status="PASS" endtime="20180611 12:42:13.949" starttime="20180611 12:42:13.925"></status>
 </kw>
-<kw type="teardown" library="Selenium2Library" name="Close Browser">
-<doc>Closes the current browser.</doc>
-<status endtime="20180608 11:11:40.489" status="PASS" starttime="20180608 11:11:37.328"></status>
+<status status="PASS" endtime="20180611 12:42:13.949" starttime="20180611 12:42:05.703"></status>
 </kw>
-<status endtime="20180608 11:11:40.489" status="PASS" critical="yes" starttime="20180608 11:11:31.305"></status>
+<kw library="Selenium2Library" name="Get WebElements">
+<doc>Returns list of WebElement objects matching the ``locator``.</doc>
+<arguments>
+<arg>class : style-scope yt-img-shadow</arg>
+</arguments>
+<assign>
+<var>${image_list}</var>
+</assign>
+<msg timestamp="20180611 12:42:13.999" level="INFO">${image_list} = [&lt;selenium.webdriver.firefox.webelement.FirefoxWebElement (session="a6864fcf-dd39-4b60-ab7c-aa32b6ea7f32", element="45349ce7-cd7e-430f-9045-2698f33ec626")&gt;, &lt;selenium.webdriver.firefox.webelement.Fire...</msg>
+<status status="PASS" endtime="20180611 12:42:13.999" starttime="20180611 12:42:13.950"></status>
+</kw>
+<kw library="Selenium2Library" name="Click Element">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>Select From List By Index</arg>
+<arg>${image_list}</arg>
+<arg>4</arg>
+</arguments>
+<msg timestamp="20180611 12:42:14.000" level="FAIL">Keyword 'Selenium2Library.Click Element' expected 1 argument, got 3.</msg>
+<status status="FAIL" endtime="20180611 12:42:14.000" starttime="20180611 12:42:14.000"></status>
+</kw>
+<status status="FAIL" endtime="20180611 12:42:14.001" starttime="20180611 12:42:05.702" critical="yes">Keyword 'Selenium2Library.Click Element' expected 1 argument, got 3.</status>
 </test>
-<status endtime="20180608 11:11:40.490" status="PASS" starttime="20180608 11:11:31.115"></status>
-</suite>
-<statistics>
-<total>
-<stat fail="0" pass="1">Critical Tests</stat>
-<stat fail="0" pass="1">All Tests</stat>
-</total>
-<tag>
-</tag>
-<suite>
-<stat id="s1" fail="0" pass="1" name="FirstTest">FirstTest</stat>
-</suite>
-</statistics>
 <errors>
+<msg timestamp="20180611 12:42:14.048" level="ERROR">Unexpected error: OSError: raw write() returned invalid length 8 (should have been between 0 and 4)
+Traceback (most recent call last):
+  File "c:\users\balint.nandor\appdata\local\programs\python\python35\lib\site-packages\robot\utils\application.py", line 83, in _execute
+    rc = self.main(arguments, **options)
+  File "c:\users\balint.nandor\appdata\local\programs\python\python35\lib\site-packages\robot\run.py", line 445, in main
+    result = suite.run(settings)
+  File "c:\users\balint.nandor\appdata\local\programs\python\python35\lib\site-packages\robot\running\model.py", line 248, in run
+    self.visit(runner)
+  File "c:\users\balint.nandor\appdata\local\programs\python\python35\lib\site-packages\robot\model\testsuite.py", line 161, in visit
+    visitor.visit_suite(self)
+  File "c:\users\balint.nandor\appdata\local\programs\python\python35\lib\site-packages\robot\model\visitor.py", line 88, in visit_suite
+    self.end_suite(suite)
+  File "c:\users\balint.nandor\appdata\local\programs\python\python35\lib\site-packages\robot\running\runner.py", line 104, in end_suite
+    self._context.end_suite(ModelCombiner(suite, self._suite))
+  File "c:\users\balint.nandor\appdata\local\programs\python\python35\lib\site-packages\robot\running\context.py", line 132, in end_suite
+    self.output.end_suite(suite)
+  File "c:\users\balint.nandor\appdata\local\programs\python\python35\lib\site-packages\robot\output\output.py", line 53, in end_suite
+    LOGGER.end_suite(suite)
+  File "c:\users\balint.nandor\appdata\local\programs\python\python35\lib\site-packages\robot\output\logger.py", line 175, in end_suite
+    logger.end_suite(suite)
+  File "c:\users\balint.nandor\appdata\local\programs\python\python35\lib\site-packages\robot\output\console\verbose.py", line 42, in end_suite
+    self._writer.status(suite.status)
+  File "c:\users\balint.nandor\appdata\local\programs\python\python35\lib\site-packages\robot\output\console\verbose.py", line 117, in status
+    self._stdout.write(' |\n')
+  File "c:\users\balint.nandor\appdata\local\programs\python\python35\lib\site-packages\robot\output\console\highlighting.py", line 51, in write
+    self._write(console_encode(text, stream=self.stream))
+  File "c:\users\balint.nandor\appdata\local\programs\python\python35\lib\site-packages\robot\output\console\highlighting.py", line 59, in _write
+    self.stream.write(text)</msg>
 </errors>
 </robot>
